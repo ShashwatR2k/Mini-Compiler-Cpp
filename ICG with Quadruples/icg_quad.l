@@ -2,7 +2,7 @@
     #include<string.h>
     #include<stdio.h>
     int line = 0;
-    #define YYSTYPE char *
+    #define YYSTYPE char *  
 %}
 
 alpha [A-Za-z_]
@@ -29,7 +29,7 @@ digit [0-9]
 {digit}+    {yylval = strdup(yytext);return NUM;}
 {digit}+.{digit}+ {yylval = strdup(yytext);return FLOAT;}
 {alpha}({alpha}|{digit})* {yylval = strdup(yytext);return ID;}
-{alpha}({alpha}|{digit})*"\.h"?  {yylval = strdup(yytext);return H;}
+{alpha}({alpha}|{digit})*"\.h"?  {yylval = strdup(yytext);return H;} 
 \".*\" {yylval = strdup(yytext);return STRING;}
 "<" {yylval = strdup(yytext);return T_lt;}
 ">"     {yylval = strdup(yytext);return T_gt;}
